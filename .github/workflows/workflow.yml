@@ -47,7 +47,7 @@ jobs:
         context: .
         file: docker/Dockerfile
         platforms: linux/amd64
-        tags: ${{USER_NAME}}/${{APP_NAME}}:latest
+        tags: ${USER_NAME}}/${APP_NAME}}:latest
         # secrets: |
         #   "secret_1=${{ secrets.MY_SECRET_1 }}"
         #   "secret_2=${{ secrets.MY_SECRET_2 }}"    
