@@ -7,8 +7,8 @@ on:
     branches: [ "main" ]
 
 env:
-  #DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-  #DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
   APP_NAME: gaargok8s
   USER_NAME: marcoliew
   X: date +%s
@@ -29,11 +29,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-      
-    # - name: Build the Docker image
-    #   run: |
-    #     docker build . --file docker/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
-    #     docker push ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
+    
 
 
     # - name: Set up QEMU
@@ -41,15 +37,28 @@ jobs:
     # - name: Set up Docker Buildx
     #   uses: docker/setup-buildx-action@v3
 
-    - name: Build the app image
-      uses: docker/build-push-action@v5
-      with:
-        push: true
-        context: "{{defaultContext}}:docker"
-        file: Dockerfile
-        platforms: linux/amd64
-        tags: marcoliew/gaargok8s:latest
+    # - name: Build the app image
+    #   uses: docker/build-push-action@v5
+    #   with:
+    #     push: true
+    #     context: "{{defaultContext}}:docker"
+    #     file: Dockerfile
+    #     platforms: linux/amd64
+    #     tags: marcoliew/gaargok8s:latest
         #tags: ${USER_NAME}}/${APP_NAME}}:latest
         # secrets: |
         #   "username=${{ secrets.DOCKERHUB_USERNAME }}"
         #   "password=${{ secrets.DOCKERHUB_TOKEN }}"    
+
+    - name: push with timestamp tag
+      run: |
+        echo 1
+        echo ${ secrets.DOCKER_USERNAME }
+        echo 2
+        echo ${{ secrets.DOCKER_USERNAME }}
+        echo 3
+        echo ${DOCKER_USERNAME}
+        echo 4
+        echo ${X}
+    #     docker build . --file docker/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
+    #     docker push ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
