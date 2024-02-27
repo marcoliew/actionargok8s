@@ -48,7 +48,7 @@ jobs:
         context: "{{defaultContext}}:docker"
         file: Dockerfile
         platforms: linux/amd64
-        tags: marcoliew/gaargok8s:$(date +%s)
+        tags: marcoliew/gaargok8s:latest
         #tags: ${USER_NAME}}/${APP_NAME}}:latest
         # secrets: |
         #   "username=${{ secrets.DOCKERHUB_USERNAME }}"
