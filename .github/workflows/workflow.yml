@@ -44,8 +44,8 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         push: true
-        context: ./docker
-        file: ./docker/Dockerfile
+        context: "{{defaultContext}}:docker"
+        file: Dockerfile
         platforms: linux/amd64
         tags: gaargok8s/marcoliew:latest
         #tags: ${USER_NAME}}/${APP_NAME}}:latest
