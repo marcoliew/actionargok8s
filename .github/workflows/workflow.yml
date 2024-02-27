@@ -31,5 +31,5 @@ jobs:
       
     - name: Build the Docker image
       run: |
-        docker build . --file docker/Dockerfile --tag ${DOCKER_USERNAME}/${USER_NAME}:latest
-        docker push ${DOCKER_USERNAME}/${USER_NAME}:latest
+        docker build . --file docker/Dockerfile --tag ${USER_NAME}/${APP_NAME}:latest
+        docker push ${USER_NAME}/${APP_NAME}:latest
