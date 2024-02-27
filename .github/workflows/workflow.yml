@@ -7,10 +7,10 @@ on:
     branches: [ "main" ]
 
 env:
-  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-  DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
+  #DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  #DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
   APP_NAME: gaargok8s
-  USER_NAME: marcoliew
+  #USER_NAME: marcoliew
 
 jobs:
 
@@ -31,5 +31,5 @@ jobs:
       
     - name: Build the Docker image
       run: |
-        docker build . --file docker/Dockerfile --tag ${USER_NAME}/${APP_NAME}:latest
-        docker push ${USER_NAME}/${APP_NAME}:latest
+        docker build . --file docker/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
+        docker push ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
