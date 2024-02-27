@@ -10,7 +10,7 @@ env:
   #DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   #DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
   APP_NAME: gaargok8s
-  #USER_NAME: marcoliew
+  USER_NAME: marcoliew
 
 jobs:
 
@@ -29,7 +29,25 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
       
-    - name: Build the Docker image
-      run: |
-        docker build . --file docker/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
+    # - name: Build the Docker image
+    #   run: |
+    #     docker build . --file docker/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
+    #     docker push ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
+
+
+    # - name: Set up QEMU
+    #   uses: docker/setup-qemu-action@v3
+    # - name: Set up Docker Buildx
+    #   uses: docker/setup-buildx-action@v3
+
+    - name: Build the app image
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        context: .
+        file: docker/Dockerfile
+        platforms: linux/amd64
+        tags: ${USER_NAME}/${APP_NAME}:latest
+        # secrets: |
+        #   "secret_1=${{ secrets.MY_SECRET_1 }}"
+        #   "secret_2=${{ secrets.MY_SECRET_2 }}"    
