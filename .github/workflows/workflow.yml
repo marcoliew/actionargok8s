@@ -20,8 +20,8 @@ jobs:
 
     steps:
 
-    - name: Checkout code
-      uses: actions/checkout@v3
+    # - name: Checkout code
+    #   uses: actions/checkout@v3
 
     - name: Login to Docker Hub marcoliew
       uses: docker/login-action@v3
@@ -47,7 +47,8 @@ jobs:
         context: .
         file: docker/Dockerfile
         platforms: linux/amd64
-        tags: ${USER_NAME}}/${APP_NAME}}:latest
+        tags: gaargok8s/marcoliew:latest
+        #tags: ${USER_NAME}}/${APP_NAME}}:latest
         # secrets: |
         #   "secret_1=${{ secrets.MY_SECRET_1 }}"
         #   "secret_2=${{ secrets.MY_SECRET_2 }}"    
