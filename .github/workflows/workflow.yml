@@ -11,7 +11,7 @@ env:
   DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
   APP_NAME: gaargok8s
   USER_NAME: marcoliew
-  X: date +%s
+  X: 'date +%s'
 
 jobs:
 
@@ -53,9 +53,9 @@ jobs:
     - name: push with timestamp tag
       run: |
         echo 2
-        echo ${{ secrets.DOCKER_USERNAME }}
+        echo ${USER_NAME}
         echo 3
-        echo ${DOCKER_USERNAME}
+        echo $DOCKER_USERNAME
         echo 4
         echo ${X}
     #     docker build . --file docker/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
