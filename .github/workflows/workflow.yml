@@ -52,8 +52,6 @@ jobs:
 
     - name: push with timestamp tag
       run: |
-        echo 1
-        echo ${ secrets.DOCKER_USERNAME }
         echo 2
         echo ${{ secrets.DOCKER_USERNAME }}
         echo 3
