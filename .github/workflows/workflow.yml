@@ -21,8 +21,8 @@ jobs:
 
     steps:
 
-    - name: Checkout code
-      uses: actions/checkout@v3
+    # - name: Checkout code
+    #   uses: actions/checkout@v3
 
     - name: Login to Docker Hub marcoliew
       uses: docker/login-action@v3
@@ -37,20 +37,20 @@ jobs:
     # - name: Set up Docker Buildx
     #   uses: docker/setup-buildx-action@v3
 
-    # - name: Build the app image
-    #   uses: docker/build-push-action@v5
-    #   with:
-    #     push: true
-    #     context: "{{defaultContext}}:docker"
-    #     file: Dockerfile
-    #     platforms: linux/amd64
-    #     tags: marcoliew/gaargok8s:latest
+    - name: Build and push the app image
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        context: "{{defaultContext}}:docker"
+        file: Dockerfile
+        platforms: linux/amd64
+        tags: marcoliew/gaargok8s:latest
         #tags: ${USER_NAME}}/${APP_NAME}}:latest
         # secrets: |
         #   "username=${{ secrets.DOCKERHUB_USERNAME }}"
         #   "password=${{ secrets.DOCKERHUB_TOKEN }}"    
 
-    - name: push with timestamp tag
-      run: |
-        docker build -f docker/Dockerfile . -t ${USER_NAME}/${APP_NAME}:latest
-        docker push ${USER_NAME}/${APP_NAME}:latest
+    # - name: push with timestamp tag
+    #   run: |
+    #     docker build -f docker/Dockerfile . -t ${USER_NAME}/${APP_NAME}:latest
+    #     docker push ${USER_NAME}/${APP_NAME}:latest
