@@ -21,8 +21,8 @@ jobs:
 
     steps:
 
-    # - name: Checkout code
-    #   uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Login to Docker Hub marcoliew
       uses: docker/login-action@v3
