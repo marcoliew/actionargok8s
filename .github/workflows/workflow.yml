@@ -52,11 +52,5 @@ jobs:
 
     - name: push with timestamp tag
       run: |
-        echo 2
-        echo ${USER_NAME}
-        echo 3
-        echo $DOCKER_USERNAME
-        echo 4
-        echo ${X}
-    #     docker build . --file docker/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
-    #     docker push ${{ secrets.DOCKER_USERNAME }}/${APP_NAME}:latest
+        docker build . --file docker/Dockerfile --tag ${USER_NAME}/${APP_NAME}:latest
+        docker push ${USER_NAME}/${APP_NAME}:latest
