@@ -52,5 +52,5 @@ jobs:
 
     - name: push with timestamp tag
       run: |
-        docker build -f docker/Dockerfile . -t ${DOCKER_USERNAME}/${APP_NAME}:latest
-        docker push ${DOCKER_USERNAME}/${APP_NAME}:latest
+        docker build -f docker/Dockerfile . -t ${USER_NAME}/${APP_NAME}:latest
+        docker push ${USER_NAME}/${APP_NAME}:latest
