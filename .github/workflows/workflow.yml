@@ -59,7 +59,7 @@ jobs:
 
     - name: Test
       run: |
-        docker run --rm ${{ env.LATEST_TAG }}   
+        docker run --rm ${{ env.TEST_TAG }}   
 
 
     # - name: push with timestamp tag
