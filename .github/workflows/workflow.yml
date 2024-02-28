@@ -11,7 +11,7 @@ env:
   DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
   APP_NAME: gaargok8s
   USER_NAME: marcoliew
-  X: 'date +%s'
+  #X: 'date +%s'
 
   TEST_TAG: marcoliew/gaargok8s:test
   LATEST_TAG: marcoliew/gaargok8s:latest  
@@ -52,7 +52,7 @@ jobs:
         file: Dockerfile
         platforms: linux/amd64
         #tags: ${{ env.TEST_TAG }}
-        tags: ${USER_NAME}}/${APP_NAME}}:latest
+        tags: ${USER_NAME}/${APP_NAME}:latest
         # secrets: |
         #   "username=${{ secrets.DOCKERHUB_USERNAME }}"
         #   "password=${{ secrets.DOCKERHUB_TOKEN }}"    
