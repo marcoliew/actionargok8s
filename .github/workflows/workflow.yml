@@ -21,12 +21,12 @@ jobs:
 
     steps:
 
-    - name: Checkout code
-      uses: actions/checkout@v3
+    # - name: Checkout code
+    #   uses: actions/checkout@v3
 
-    - name: Get the version
-      id: get_version
-      run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+    # - name: Get the version
+    #   id: get_version
+    #   run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
 
     - name: Login to Docker Hub marcoliew
       uses: docker/login-action@v3
