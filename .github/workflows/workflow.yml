@@ -52,7 +52,7 @@ jobs:
         file: Dockerfile
         platforms: linux/amd64
         #tags: ${{ env.TEST_TAG }}
-        tags: ${USER_NAME}/${APP_NAME}:latest
+        tags: ${{ env.USER_NAME }}/${{ env.APP_NAME }}:latest
         # secrets: |
         #   "username=${{ secrets.DOCKERHUB_USERNAME }}"
         #   "password=${{ secrets.DOCKERHUB_TOKEN }}"    
