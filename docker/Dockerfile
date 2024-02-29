@@ -6,6 +6,7 @@ RUN apt-get update -y
 ENV DEBIAN_FRONTEND noninteractive	
 RUN apt-get -y install tzdata
 RUN apt-get install apache2 -y
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 WORKDIR UBUNTU_HOME
 #COPY docker/source/index.html ${UBUNTU_HOME}
 COPY source/index.html ${UBUNTU_HOME}

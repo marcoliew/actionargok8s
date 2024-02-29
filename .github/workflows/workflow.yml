@@ -44,10 +44,10 @@ jobs:
     # - name: Set up Docker Buildx
     #   uses: docker/setup-buildx-action@v3
 
-    - name: Build and push the app image
+    - name: Build and push for testing
       uses: docker/build-push-action@v5
       with:
-        push: true
+        load: true
         context: "{{defaultContext}}:docker"
         file: Dockerfile
         platforms: linux/amd64
@@ -61,6 +61,14 @@ jobs:
       run: |
         docker run --rm ${{ env.TEST_TAG }}   
 
+
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        platforms: linux/amd64,linux/arm64
+        push: true
+        tags: ${{ env.LATEST_TAG }}    
 
     # - name: push with timestamp tag
     #   run: |
