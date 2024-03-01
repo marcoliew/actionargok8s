@@ -70,7 +70,7 @@ jobs:
         context: .
         #platforms: linux/amd64,linux/arm64
         push: true
-        tags: |
+        tags:
         ${{ env.LATEST_TAG }}    
 
     # - name: push with timestamp tag
