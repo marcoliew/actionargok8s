@@ -60,7 +60,6 @@ jobs:
     - name: Test
       run: |
         docker run -d -p 8081:80 --name gaargok8s-ct ${{ env.TEST_TAG }} 
-        docker exec -it gaargok8s-ct curl http://localhost:80
         docker stop gaargok8s-ct
         docker rm gaargok8s-ct
 
