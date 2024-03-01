@@ -70,9 +70,7 @@ jobs:
         context: "{{defaultContext}}:docker"
         platforms: linux/amd64
         push: true
-        tags: |
-        ${{ env.LATEST_TAG }}    
-        ${{ env.TEST_TAG }}    
+        tags: ${{ env.LATEST_TAG }}    
 
     # - name: push with timestamp tag
     #   run: |
