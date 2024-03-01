@@ -72,7 +72,6 @@ jobs:
         push: true
         tags: |
         ${{ env.LATEST_TAG }}    
-        ${{ env.TEST_TAG }}  
 
     # - name: push with timestamp tag
     #   run: |
